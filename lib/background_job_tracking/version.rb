@@ -1,0 +1,3 @@
+module BackgroundJobTracking
+  VERSION = "0.0.1"
+end
