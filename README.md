@@ -10,15 +10,12 @@ Assumes that you're using Delayed Job and ActiveRecord.
 
 Add this line to your application's Gemfile:
 
-    gem 'background_job_tracking'
+    gem 'background_job_tracking', :git => 'git://github.com/natlownes/background_job_tracking.git', :ref => 'master'
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install background_job_tracking
 
 You'll also need your database to have a `delayed_job_trackings` table, the details of which are in the included `db/schema.rb`.
 
