@@ -228,7 +228,8 @@ describe 'background job tracking' do
 
   describe 'Delayed::Backend::ActiveRecord::Job' do
     it 'should have a dependent destroy on trackings' do
-      Delayed::Backend::ActiveRecord::Job.reflections[:delayed_job_trackings].options[:dependent].should == :destroy
+      puts   Delayed::Backend::ActiveRecord::Job.reflections[:delayed_job_tracking]
+      Delayed::Backend::ActiveRecord::Job.reflections[:delayed_job_tracking].options[:dependent].should == :destroy
     end
   end
 
