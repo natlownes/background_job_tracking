@@ -71,6 +71,11 @@ are no longer valid; you'll want them to go out on the updated date of the objec
       end
     end
 
+Public instance methods:
+
+* `:run_and_track_job_for` - for tracking a job outside the context of a callback.  arguments are your method name `:do_some_long_running_thing` in the example above.
+* `:run_and_reschedule_job_for` - for tracking and destroying any previous trackings and jobs for that method.  arguments are your method name.
+
 ## TODO
 
 * Murder deprecation warnings coming out of using nulldb during test runs.

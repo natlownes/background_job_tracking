@@ -142,6 +142,22 @@ describe 'background job tracking' do
         @object_with_jobs.stub(:new_record?).and_return(false)
       end
 
+      context 'run_and_track_job_for' do
+        it 'should run the method that schedules and tracks background jobs (background_job_creation_tracking_callback_for_schedule_long_running_thing in our example)' do
+          @object_with_jobs.should_receive(:background_job_creation_tracking_callback_for_schedule_long_running_thing)
+
+          @object_with_jobs.run_and_track_job_for :schedule_long_running_thing
+        end
+      end
+
+      context 'run_and_reschedule_job_for' do
+        it 'should run the method that reschedules and tracks background jobs (reschedule_background_job_for_schedule_long_running_thing in our example)' do
+          @object_with_jobs.should_receive(:reschedule_background_job_for_schedule_long_running_thing)
+
+          @object_with_jobs.run_and_reschedule_job_for :schedule_long_running_thing
+        end
+      end
+
       context 'create_delayed_job_tracking_for_method_name_and_job' do
         it 'should create a delayed_job_tracking for the job with the method name' do
           job = double

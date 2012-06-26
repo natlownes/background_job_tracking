@@ -85,6 +85,14 @@ module BackgroundJobTracking
       include ActiveRecord::Callbacks
     end
 
+    def run_and_track_job_for(method_name)
+      send(BackgroundJobTracking::Config.job_creation_method_name_for_method(method_name))
+    end
+
+    def run_and_reschedule_job_for(method_name)
+      send(BackgroundJobTracking::Config.job_rescheduling_method_name_for_method(method_name))
+    end
+
     private
 
     def create_delayed_job_tracking_for_method_name_and_job(method_name, job)
